@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+    {% block content %}
+    <div id="wrapper">
+    <div id="page-wrapper">
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12"><br/>
+            <div class="panel panel-default">
+                <div class="panel-heading" style="text-align: center;">
+                    <i class="fa fa-wrench"></i>   Our Application is still under development for further enhancements
+                </div>
+                <!-- .panel-heading -->
+                <div class="panel-body">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                        <p style="color: blue;">{{ msg }}
+                                            </p>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                            
+                                        Got a minute to share your experience with OTRS?(click here)</a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                        We’d love to hear your suggestions/feedback!
+                                        {% if current_user.is_authenticated %}
+                                        <div class="panel-body">
+                                                <form role="form" method="POST" action="/" id='revw_submit'>
+                                                    <fieldset>
+                                                        <div class="form-group">
+                                                            <input class="form-control" placeholder="Suggestions/Feedback" name="revw" type="text" autofocus required>
+                                                        </div>
+                                                        <div>
+                                                        <button class="btn btn-success" href="javascript:{}" onclick="if(window.alert('Thanks for your valuable feedback!!')); document.getElementById('revw_submit').submit();">Submit</button></div>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        {% else %}
+                                        <div class="panel-body">
+                                                <form role="form" method="GET" action="/login" id='revw_login'>
+                                                    <fieldset>
+                                        <p>Please do <a href="javascript:{}" onclick="document.getElementById('revw_login').submit();">login/register!</a>
+                                            <input type="hidden" id="arg" name="arg" value="review"/></p>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                        {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- .panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+            <div class="col-md-12">
+                    <div class="panel panel-default">
+                    <h1 style="text-align: center;">OTRS!</h1>
+                    <h4 style="text-align: center">Please register/login to get complete experience of our application</h4>
+                    <h3 style="text-align: center;">For all</h3>
+                    <div class="panel-body" style="text-align: center">
+                    <h4>OTRS is an online table reservation system. We help you book your prefered table in any of the restaurant you wanted.</h4>
+                    <h4>We also help you to order food if you wanted.</h4></div>
+                    <p style="text-align: center;"><a class="btn btn-primary btn-lg" role="button" onclick="if(window.alert('Apologies! Thanks for showing your interest! But this service is under progress!')); return false;">Learn more</a>
+                    </p>
+                    </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <br><br><br><br>
+    <div class="row">
+            <div class="col-md-7 col-md-offset-2">
+                    <div class="panel-body" style="text-align: center">
+                            <form role="form" method="GET" action="/posts" id='revw_submit'>
+                                <fieldset>
+                                    <div class="form-group">
+                                            <h4>You can view our world of interesing posts by just 1 click  <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                                                <button class="btn btn-default" role="button" type="submit">Click here for posts</button>
+                                            </h4>
+                                    </div>
+                                    <div>
+                                </div>
+                                </fieldset>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+        </div>
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+    {% endblock %}
